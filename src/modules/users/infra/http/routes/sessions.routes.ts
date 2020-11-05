@@ -4,6 +4,9 @@ import { Request, Response, Router } from 'express';
 import { container } from 'tsyringe';
 
 const sessionRouter = Router();
+
+// TODO validate data
+
 sessionRouter.post('/', async (request: Request, response: Response) => {
   const { email, password } = request.body;
   const authenticateUser = container.resolve(AuthenticateUserService);
