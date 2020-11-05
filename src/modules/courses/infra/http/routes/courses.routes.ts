@@ -1,10 +1,18 @@
 import CreateCourseService from '@modules/courses/services/CreateCourseService';
+import ListCoursesService from '@modules/courses/services/ListCoursesService';
 import UpdateCourseService from '@modules/courses/services/UpdateCourseService';
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated';
 import { Request, Response, Router } from 'express';
 import { container } from 'tsyringe';
 
 const coursesRouter = Router();
+
+coursesRouter.get('', async (request: Request, response: Response) => {
+  const listCourses = container.resolve(ListCoursesService);
+
+  const courses = await listCourses.execute();
+  return response.json(courses);
+});
 
 coursesRouter.post(
   '/',

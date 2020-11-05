@@ -9,4 +9,6 @@ export default interface ICoursesRepository {
   findById(id: string): Promise<Course | undefined>;
 
   save(course: Course): Promise<Course>;
+
+  list(): Promise<Course[]>;
 }

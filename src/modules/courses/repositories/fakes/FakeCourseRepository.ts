@@ -11,6 +11,10 @@ export default class FakeCourseRepository implements ICoursesRepository {
     this.courses = [];
   }
 
+  public async list(): Promise<Course[]> {
+    return this.courses;
+  }
+
   public async save(course: Course): Promise<Course> {
     const findIndex = this.courses.findIndex(
       findCourse => findCourse.id === course.id,

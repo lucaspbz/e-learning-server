@@ -10,6 +10,10 @@ export default class CoursesRepository implements ICoursesRepository {
     this.ormRepository = getRepository(Course);
   }
 
+  public async list(): Promise<Course[]> {
+    return this.ormRepository.find();
+  }
+
   public async save(course: Course): Promise<Course> {
     return this.ormRepository.save(course);
   }
