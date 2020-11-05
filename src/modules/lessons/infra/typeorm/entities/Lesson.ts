@@ -1,12 +1,14 @@
 import {
   Column,
   CreateDateColumn,
+  Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import Course from '../../../../courses/infra/typeorm/entities/Course';
 
+@Entity('lessons')
 export default class Lesson {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -17,7 +19,9 @@ export default class Lesson {
   @Column('int')
   duration: number;
 
-  @ManyToOne(() => Course, course => course.id)
+  @ManyToOne(() => Course, course => course.lessons)
+  course: Course;
+
   @Column('uuid')
   course_id: string;
 

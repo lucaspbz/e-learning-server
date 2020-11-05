@@ -1,12 +1,14 @@
 import {
   Column,
   CreateDateColumn,
+  Entity,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import Lesson from '../../../../lessons/infra/typeorm/entities/Lesson';
 
+@Entity('courses')
 class Course {
   @PrimaryGeneratedColumn('uuid')
   id: string;

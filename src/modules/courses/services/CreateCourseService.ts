@@ -1,5 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import { inject, injectable } from 'tsyringe';
+import { injectable, inject } from 'tsyringe';
+
 import ICreateCourseDTO from '../dtos/ICreateCourseDTO';
 import Course from '../infra/typeorm/entities/Course';
 import ICoursesRepository from '../repositories/ICoursesRepository';

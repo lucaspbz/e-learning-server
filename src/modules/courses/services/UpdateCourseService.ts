@@ -23,7 +23,11 @@ export default class UpdateCourseService {
       throw new AppError('There is no such course with this Id');
     }
 
-    if (course.name === data.name) {
+    const existingCourseName = await this.coursesRepository.findByName(
+      data.name,
+    );
+
+    if (existingCourseName) {
       throw new AppError('There is already a course with this name');
     }
 
