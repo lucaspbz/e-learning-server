@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import FakeUsersRepository from '../infra/typeorm/repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import CreateUserService from './CreateUserService';
@@ -23,5 +24,21 @@ describe('Create user', () => {
     });
 
     expect(user).toHaveProperty('id');
+  });
+
+  it('should not be able to create a user with a already taken email', async () => {
+    await createUser.execute({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    await expect(
+      createUser.execute({
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
