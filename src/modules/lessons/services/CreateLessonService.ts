@@ -23,8 +23,6 @@ export default class CreateLessonService {
   ) { }
 
   public async execute(data: IRequest): Promise<Lesson> {
-    const lesson = await this.lessonsRepository.create(data);
-
     const existingCourse = await this.coursesRepository.findById(
       data.course_id,
     );
@@ -32,6 +30,8 @@ export default class CreateLessonService {
     if (!existingCourse) {
       throw new AppError('No such course with this id');
     }
+
+    const lesson = await this.lessonsRepository.create(data);
 
     return lesson;
   }

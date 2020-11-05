@@ -12,6 +12,7 @@ export default class CreateLessonsTable1604512144990
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',
@@ -43,6 +44,15 @@ export default class CreateLessonsTable1604512144990
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'LessonCourse',
+            referencedTableName: 'courses',
+            referencedColumnNames: ['id'],
+            columnNames: ['course_id'],
+            onUpdate: 'CASCADE',
           },
         ],
       }),
