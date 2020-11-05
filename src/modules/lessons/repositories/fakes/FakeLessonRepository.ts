@@ -15,21 +15,21 @@ export default class FakeLessonRepository implements ILessonsRepository {
   //   return this.lessons;
   // }
 
-  // public async save(lesson: Lesson): Promise<Lesson> {
-  //   const findIndex = this.lessons.findIndex(
-  //     findLesson => findLesson.id === lesson.id,
-  //   );
+  public async save(lesson: Lesson): Promise<Lesson> {
+    const findIndex = this.lessons.findIndex(
+      findLesson => findLesson.id === lesson.id,
+    );
 
-  //   this.lessons[findIndex] = lesson;
+    this.lessons[findIndex] = lesson;
 
-  //   return lesson;
-  // }
+    return lesson;
+  }
 
-  // public async findById(id: string): Promise<Lesson | undefined> {
-  //   const course = this.lessons.find(searchCourse => searchCourse.id === id);
+  public async findById(id: string): Promise<Lesson | undefined> {
+    const course = this.lessons.find(searchCourse => searchCourse.id === id);
 
-  //   return course;
-  // }
+    return course;
+  }
 
   public async create(data: ICreateLessonDTO): Promise<Lesson> {
     const lesson = new Lesson();

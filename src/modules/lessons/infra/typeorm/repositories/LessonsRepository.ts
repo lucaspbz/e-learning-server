@@ -11,6 +11,14 @@ export default class LessonsRepository implements ILessonsRepository {
     this.ormRepository = getRepository(Lesson);
   }
 
+  public async findById(id: string): Promise<Lesson | undefined> {
+    return this.ormRepository.findOne(id);
+  }
+
+  public async save(lesson: Lesson): Promise<Lesson> {
+    return this.ormRepository.save(lesson);
+  }
+
   public async create(data: ICreateLessonDTO): Promise<Lesson> {
     const lesson = this.ormRepository.create(data);
 

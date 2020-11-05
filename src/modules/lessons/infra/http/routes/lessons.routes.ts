@@ -1,7 +1,8 @@
+import { Request, Response, Router } from 'express';
+import { container } from 'tsyringe';
+
 import CreateLessonService from '@modules/lessons/services/CreateLessonService';
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated';
-import { json, Request, Response, Router } from 'express';
-import { container } from 'tsyringe';
 
 const lessonsRouter = Router();
 
