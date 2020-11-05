@@ -3,6 +3,7 @@ import { container } from 'tsyringe';
 
 import CreateLessonService from '@modules/lessons/services/CreateLessonService';
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated';
+import UpdateLessonService from '@modules/lessons/services/UpdateLessonService';
 
 const lessonsRouter = Router();
 
@@ -20,6 +21,29 @@ lessonsRouter.post(
       duration,
       description,
       course_id,
+    });
+
+    return response.json(lesson);
+  },
+);
+
+lessonsRouter.put(
+  '/:id',
+  ensureAuthenticated,
+  async (request: Request, response: Response) => {
+    const { id } = request.params;
+
+    const { name, duration, course_id, description, video_id } = request.body;
+
+    const updateLesson = container.resolve(UpdateLessonService);
+
+    const lesson = await updateLesson.execute({
+      lesson_id: id,
+      name,
+      duration,
+      course_id,
+      description,
+      video_id,
     });
 
     return response.json(lesson);
