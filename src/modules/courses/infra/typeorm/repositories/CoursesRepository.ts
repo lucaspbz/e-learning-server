@@ -10,6 +10,16 @@ export default class CoursesRepository implements ICoursesRepository {
     this.ormRepository = getRepository(Course);
   }
 
+  public async save(course: Course): Promise<Course> {
+    return this.ormRepository.save(course);
+  }
+
+  public async findById(id: string): Promise<Course | undefined> {
+    const course = await this.ormRepository.findOne(id);
+
+    return course;
+  }
+
   public async create(data: ICreateCourseDTO): Promise<Course> {
     const course = this.ormRepository.create(data);
 

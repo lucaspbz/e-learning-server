@@ -11,6 +11,22 @@ export default class FakeCourseRepository implements ICoursesRepository {
     this.courses = [];
   }
 
+  public async save(course: Course): Promise<Course> {
+    const findIndex = this.courses.findIndex(
+      findCourse => findCourse.id === course.id,
+    );
+
+    this.courses[findIndex] = course;
+
+    return course;
+  }
+
+  public async findById(id: string): Promise<Course | undefined> {
+    const course = this.courses.find(searchCourse => searchCourse.id === id);
+
+    return course;
+  }
+
   public async create(data: ICreateCourseDTO): Promise<Course> {
     const course = new Course();
     const id = uuid();
