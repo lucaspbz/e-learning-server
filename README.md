@@ -1,7 +1,24 @@
-# Awesome Project Build with TypeORM
+# E-learning (Em desenvolvimento...)
 
-Steps to run this project:
+A idéia deste aplicativo foi fornecida como bônus por completar o bootcamp GoStack da RocketSeat, e se encontra neste [link](https://www.notion.so/Backend-da-aplica-o-3ae6af3745794ee99c4bc3c592d3dcfb).
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+## Techs e arquiteturas:
+* Typescript
+* Express
+* Typeorm
+* Postgresql
+* TDD
+* DDD
+* Jest
+* Autenticação JWT
+
+#### Se trata de um aplicativo para gestão de aulas onde o usuário pode:
+
+* Se cadastrar
+* Se autenticar
+* Criar cursos
+* Editar cursos criados
+* Listar cursos criados
+* Criar aulas
+* Editar aulas
+* Listar aulas
