@@ -1,6 +1,7 @@
 # E-learning (Em desenvolvimento...)
 
 A idéia deste aplicativo foi fornecida como bônus por completar o bootcamp GoStack da RocketSeat, e se encontra neste [link](https://www.notion.so/Backend-da-aplica-o-3ae6af3745794ee99c4bc3c592d3dcfb).
+
 O App mobile está nesse [repo](https://github.com/lucaspbz/e-learning-mobile) aqui.
 
 ## Techs e arquiteturas:
